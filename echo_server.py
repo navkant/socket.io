@@ -5,7 +5,7 @@ def echo_server(address):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind(address)
     sock.listen(1)
-    print(f'listening at {address[1]}')
+    print(f'listening at {address}')
     while True:
         client, addr = sock.accept()
         print(f'Connected to client at {addr}')
@@ -25,4 +25,4 @@ def echo_handler(client):
 
 
 if __name__ == '__main__':
-    echo_server(('127.0.0.1',  8000))
+    echo_server(('',  8000))
