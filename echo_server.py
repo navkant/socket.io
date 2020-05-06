@@ -18,7 +18,7 @@ def echo_handler(client):
         if not data:
             print('exit command recieved')
             break
-        print(f'Recieved: {data.decode("utf-8")}')
+        # print(f'Recieved: {data.decode("utf-8")}')
         client.sendall(b'Got:' + data)
     print('Connection closed')
     client.close()
