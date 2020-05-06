@@ -19,7 +19,7 @@ def echo_handler(client):
             print('exit command recieved')
             break
         print(f'Recieved: {data.decode("utf-8")}')
-        client.sendall(data)
+        client.sendall(b'Got:' + data)
     print('Connection closed')
     client.close()
 
