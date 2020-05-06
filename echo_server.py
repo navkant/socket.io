@@ -15,7 +15,7 @@ def echo_server(address):
 def echo_handler(client):
     while True:
         data = client.recv(1024)
-        if not data or data.decode('utf-8') == 'exit':
+        if not data:
             print('exit command recieved')
             break
         print(f'Recieved: {data.decode("utf-8")}')
