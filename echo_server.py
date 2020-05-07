@@ -13,15 +13,17 @@ def echo_server(address):
 
 
 def echo_handler(client):
-    while True:
-        data = client.recv(1024)
-        if not data:
-            print('exit command recieved')
-            break
-        # print(f'Recieved: {data.decode("utf-8")}')
-        client.sendall(b'Got:' + data)
-    print('Connection closed')
-    client.close()
+    try:
+        while True:
+            data = client.recv(1024)
+            if not data:
+                print('exit command recieved')
+                raise KeyboardInterrupt
+            # print(f'Recieved: {data.decode("utf-8")}')
+            client.sendall(b'Got:' + data)
+    except KeyboardInterrupt as k:
+        print('Connection closed')
+        client.close()
 
 
 if __name__ == '__main__':
