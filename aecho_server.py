@@ -17,7 +17,7 @@ async def echo_server(address, loop):
 async def echo_handler(client, loop):
     try:
         while True:
-            data = await loop.sock_recv(1024)
+            data = await loop.sock_recv(client, 1024)
             if not data:
                 print('exit command recieved')
                 raise KeyboardInterrupt
