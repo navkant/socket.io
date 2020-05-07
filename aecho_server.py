@@ -28,4 +28,5 @@ async def echo_handler(client, loop):
 
 
 if __name__ == '__main__':
-    echo_server(('',  8000))
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(echo_server(('',  8000), loop))
