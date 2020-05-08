@@ -38,9 +38,10 @@ class ChatClient:
             message = str(input())
             packet = f'{sender_id}:{str(3)}:{reciever_id}:{message}'
             self.sock.sendall(bytes(packet, 'utf-8'))
-            data = self.sock.recv(1024)
-            data = data.decode('utf-8')
-            print(data)
+            self.recieve_data()
+            # data = self.sock.recv(1024)
+            # data = data.decode('utf-8')
+            # print(data)
 
     def choose_option(self):
         while True:
